@@ -26,7 +26,7 @@ public class DiscussPost {
         return userId;
     }
 
-    public void setUserid(int userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
