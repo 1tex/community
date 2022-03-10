@@ -84,7 +84,7 @@ public class AlphaService {
         return "ok";
     }
 
-    // 比较简单的花用这个，比较复杂还是第一个好一些
+    // 比较简单的花用这个（编程式事务），比较复杂还是第一个好一些（声明式事务）
     public Object save2() {
         transactionTemplate.setIsolationLevel(TransactionDefinition.ISOLATION_READ_COMMITTED);
         transactionTemplate.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
