@@ -20,7 +20,7 @@
             and user_id = #{userId}
         </if>
         order by type desc, create_time desc
-        limit #{offset }, #{limit}
+        limit #{offset}, #{limit}
     </select>
     
     <select id="selectDiscussPostRows" resultType="int">
@@ -43,5 +43,8 @@
         where id = #{id}
     </select>
 
+    <update id="updateCommentCount">
+        update discuss_post set comment_count = #{commentCount} where id = #{id}
+    </update>
 
 </mapper>
