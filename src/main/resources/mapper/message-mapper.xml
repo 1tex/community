@@ -29,19 +29,18 @@
     <select id="selectConversationCount" resultType="int">
         select count(m.maxid) from (
             select max(id) as maxid from message
-                 where status != 2
-                   and from_id != 1
-                   and (from_id = #{userId}
-                    or to_id = #{userId})
-                 group by conversation_id
-             ) as m
+            where status != 2
+            and from_id != 1
+            and (from_id = #{userId} or to_id = #{userId})
+            group by conversation_id
+        ) as m
     </select>
 
     <select id="selectLetters" resultType="Message">
-        select<include refid="selectFields"></include>
+        select <include refid="selectFields"></include>
         from message
         where status != 2
-        and from_id !=1
+        and from_id != 1
         and conversation_id = #{conversationId}
         order by id desc
         limit #{offset}, #{limit}
@@ -51,7 +50,7 @@
         select count(id)
         from message
         where status != 2
-        and from_id !=1
+        and from_id != 1
         and conversation_id = #{conversationId}
     </select>
 
@@ -59,7 +58,7 @@
         select count(id)
         from message
         where status = 0
-        and from_id !=1
+        and from_id != 1
         and to_id = #{userId}
         <if test="conversationId!=null">
             and conversation_id = #{conversationId}
