@@ -14,7 +14,6 @@ public class BlockingQueueTests {
         new Thread(new Consumer(queue)).start();
         new Thread(new Consumer(queue)).start();
     }
-
 }
 
 class Producer implements Runnable {
