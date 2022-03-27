@@ -49,8 +49,8 @@
 							</li>
 						</ul>
 						<!-- 搜索 -->
-						<form class="form-inline my-2 my-lg-0" action="site/search.html">
-							<input class="form-control mr-sm-2" type="search" aria-label="Search" />
+						<form class="form-inline my-2 my-lg-0" method="get" th:action="@{/search}">
+							<input class="form-control mr-sm-2" type="search" aria-label="Search" name="keyword" th:value="${keyword}"/>
 							<button class="btn btn-outline-light my-2 my-sm-0" type="submit">搜索</button>
 						</form>
 					</div>
@@ -133,7 +133,7 @@
 								<ul class="d-inline float-right">
 									<li class="d-inline ml-2">赞 <span th:text="${map.likeCount}">11</span></li>
 									<li class="d-inline ml-2">|</li>
-									<li class="d-inline ml-2">回帖 <span th:utext="${map.post.commentCount}">7</span></li>
+									<li class="d-inline ml-2">回帖 <span th:text="${map.post.commentCount}">7</span></li>
 								</ul>
 							</div>
 						</div>						
