@@ -36,6 +36,9 @@ public class ElasticsearchService {
     public void saveDiscussPost(DiscussPost post) {
         discussRepository.save(post);
     }
+    public void deleteDiscussPost(int id){
+        discussRepository.deleteById(id);
+    }
 
     public SearchResult searchDiscussPost(String keyword, int current, int limit) throws IOException {
         //discusspost是索引名，就是表名
