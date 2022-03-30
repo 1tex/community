@@ -41,7 +41,7 @@ public class AlphaController {
         System.out.println(request.getMethod());
         System.out.println(request.getServletPath());
         Enumeration<String> enumeration = request.getHeaderNames();
-        while(enumeration.hasMoreElements()) {
+        while (enumeration.hasMoreElements()) {
             String name = enumeration.nextElement();
             String value = request.getHeader(name);
             System.out.println(name + ": " + value);
@@ -50,7 +50,7 @@ public class AlphaController {
 
         //返回响应数据
         response.setContentType("text/html;charset=utf-8");
-        try(
+        try (
                 PrintWriter writer =  response.getWriter();
                 ) {
             writer.write("<h1>牛客网</h1>");
@@ -64,12 +64,12 @@ public class AlphaController {
     // /students?current=1&limit=20
     @RequestMapping(path = "/students", method = RequestMethod.GET)
     @ResponseBody
-    public  String getStudents(
+    public String getStudents(
             @RequestParam(name = "current", required = false, defaultValue = "1") int current,
             @RequestParam(name = "limit", required = false, defaultValue = "10") int limit) {
         System.out.println(current);
         System.out.println(limit);
-        return  "some students";
+        return "some students";
     }
 
     // /student/123
@@ -95,7 +95,7 @@ public class AlphaController {
     public ModelAndView getTeacher() {
         ModelAndView mav = new ModelAndView();
         mav.addObject("name", "张三");
-        mav.addObject("age", "30");
+        mav.addObject("age", 30);
         mav.setViewName("/demo/view");
         return mav;
     }
@@ -120,7 +120,7 @@ public class AlphaController {
         return emp;
     }
 
-    @RequestMapping(path = "/emps", method =  RequestMethod.GET)
+    @RequestMapping(path = "/emps", method = RequestMethod.GET)
     @ResponseBody
     public List<Map<String, Object>> getEmps() {
         List<Map<String, Object>> list = new ArrayList<>();
@@ -148,7 +148,7 @@ public class AlphaController {
 
     // cookie示例
 
-    @RequestMapping(path = "cookie/set", method = RequestMethod.GET)
+    @RequestMapping(path = "/cookie/set", method = RequestMethod.GET)
     @ResponseBody
     public String setCookie(HttpServletResponse response) {
         // 创建cookie
