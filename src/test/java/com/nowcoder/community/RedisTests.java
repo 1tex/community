@@ -216,7 +216,7 @@ public class RedisTests {
         redisTemplate.opsForValue().setBit(redisKey4, 5 ,true);
         redisTemplate.opsForValue().setBit(redisKey4, 6 ,true);
 
-        String redisKey = "test:bm:or";r
+        String redisKey = "test:bm:or";
         Object obj = redisTemplate.execute(new RedisCallback() {
             @Override
             public Object doInRedis(RedisConnection connection) throws DataAccessException {
