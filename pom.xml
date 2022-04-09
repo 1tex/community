@@ -13,6 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>community</name>
 	<description>nowcoder community for Java.</description>
+	<packaging>war</packaging>
 
 	<properties>
 		<java.version>17</java.version>
@@ -146,13 +147,15 @@
 			<version>3.0.6</version>
 		</dependency>
 
-
-
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
 
 	</dependencies>
 
 	<build>
+		<finalName>ROOT</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
